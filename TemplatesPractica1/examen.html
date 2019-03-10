@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Profesor</title>
+        <title>Alumno</title>
         <link rel="shortcut icon" href="images/maletin.png" type="image/x-icon">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
@@ -40,9 +40,9 @@
                             <div class="navbar-end">
                                 <div class="tabs is-right">
                                     <ul>
-                                        <li><a href="inicioProfesor.html">Inicio</a></li>
-                                        <li class="is-active"><a href="crearExamen.html">Crear Examen</a></li>
-                                        <li><a href="verGrafica.html">Ver Estadísticas</a></li>
+                                        <li><a href="inicioAlumno.html">Inicio</a></li>
+                                        <li class="is-active"><a href="hacerExamen.html">Realizar Examen</a></li>
+                                        <li><a href="verCalificaciones.html">Ver Mis Calificaciones</a></li>
                                         <li><a href="#">Ayuda</a></li>
                                     </ul>
                                 </div>
@@ -54,7 +54,7 @@
             <div class="hero-body" >
                 <div class="container has-text-centered">
                     <h1 class="title">
-                        Creación de cuestionario para la evaluación
+                        Exámen
                     </h1>
                 </div>
             </div>
@@ -66,8 +66,7 @@
                         <article class="tile is-child notification is-white">
                             <div class="tabs is-centered">
                                 <ul>
-                                    <li class="tablinks is-active" onclick="openTab(event, 'Titulo')"><a style="text-decoration-color:white; color: #909497;">Título</a></li>
-                                    <li class="tablinks" onclick="openTab(event, 'Pregunta1')"><a style="text-decoration-color:white; color: #909497;">Pregunta 1</a></li>
+                                    <li class="tablinks is-active" onclick="openTab(event, 'Pregunta1')"><a style="text-decoration-color:white; color: #909497;">Pregunta 1</a></li>
                                     <li class="tablinks" onclick="openTab(event, 'Pregunta2')"><a style="text-decoration-color:white; color: #909497;">Pregunta 2</a></li>
                                     <li class="tablinks" onclick="openTab(event, 'Pregunta3')"><a style="text-decoration-color:white; color: #909497;">Pregunta 3</a></li>
                                     <li class="tablinks" onclick="openTab(event, 'Pregunta4')"><a style="text-decoration-color:white; color: #909497;">Pregunta 4</a></li>
@@ -81,13 +80,8 @@
                                 <div class="column"></div>
                                 <div class="column is-half">
                                     <form method="POST">
-                                        <div class="field tabcontent tabcontent2" id="Titulo">
-                                            <div class="control">
-                                                <input class="input is-medium is-link" type="text" placeholder="Título del cuestionario" name="titulo">
-                                            </div>
-                                        </div>
 
-                                        <div class="tabcontent" id="Pregunta1">
+                                        <div class="tabcontent tabcontent2" id="Pregunta1">
                                             <div class="field">
                                                 <div class="control">
                                                     <input class="input is-medium is-link" type="text" placeholder="Pregunta 1" name="pre1">
@@ -106,6 +100,11 @@
                                             <div class="field">
                                                 <div class="control">
                                                     <input class="input is-short is-link" type="text" placeholder="Opción 3" name="pre1opc3">
+                                                </div>
+                                            </div>
+                                            <div class="field">
+                                                <div class="control">
+                                                    <input class="input is-short is-link" type="number" min="" name="res1">
                                                 </div>
                                             </div>
                                         </div>
@@ -270,7 +269,7 @@
                                                 </div>
                                             </div>
                                             <div class="field">
-                                                <input type="submit" class="button is-block is-link is-large is-fullwidth" value="Crear Examen">
+                                                <input type="submit" class="button is-block is-link is-large is-fullwidth" value="Enviar Respuestas">
                                             </div>
                                         </div>
                                     </form>
