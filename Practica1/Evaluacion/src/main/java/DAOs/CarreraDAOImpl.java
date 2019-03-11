@@ -492,14 +492,5 @@ public class CarreraDAOImpl implements CarreraDAO
     return conn=Conexion.getConexion();
   }
   
-    public static void main(String[] args) {
-        try {
-          System.out.println("nada");
-          CarreraDAOImpl cdao=new CarreraDAOImpl();
-          cdao.insert(new Carrera("NADA", "NADA", 3));
-            System.out.println(Arrays.toString(cdao.selectAll().toArray()));
-      } catch (DAOException ex) {
-          Logger.getLogger(AlumnoDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-      }
-    }
+    
 }
