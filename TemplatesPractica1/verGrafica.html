@@ -31,7 +31,7 @@
                     <div class="container">
                         <div class="navbar-brand">
                             <a class="navbar-item" href="index.html">
-                                <img src="http://bulma.io/images/bulma-type-white.png" alt="Logo">
+                                <h2 class="subtitle has-text-white has-text-weight-bold">SISTEMA PARA LA EVALUACIÓN</h2>
                             </a>
                             <span class="navbar-burger burger" data-target="navbarMenu">
                                 <span></span>
@@ -43,10 +43,12 @@
                             <div class="navbar-end">
                                 <div class="tabs is-right">
                                     <ul>
+            <!----------------------------------------Links de las páginas------------------------------------------------->                                        
                                         <li><a href="inicioProfesor.html">Inicio</a></li>
                                         <li><a href="crearExamen.html">Crear Examen</a></li>
                                         <li class="is-active"><a href="verGrafica.html">Ver Estadísticas</a></li>
                                         <li><a href="#">Ayuda</a></li>
+            <!----------------------------------------Links de las páginas------------------------------------------------->
                                     </ul>
                                 </div>
                             </div>
@@ -70,6 +72,7 @@
                             <div class="columns">
                                 <div class="column is-one-third">
                                     <div id="graph"></div>
+<!----------------------------------GRÁFICA, SUSTITUIR DATO EN EL CAMPO VALUE.--------------------------------------------->
                                     <pre id="code" class="prettyprint linenums">
                                         Morris.Donut({
                                             element: 'graph',
@@ -91,7 +94,8 @@
                                             }).on('click', function(i, row){
                                             console.log(i, row);
                                         });
-                                    </pre>  
+                                    </pre> 
+<!------------------------------------------------------------------------------------------------------------------------>
                                 </div>
                             </div>
                         </article>
