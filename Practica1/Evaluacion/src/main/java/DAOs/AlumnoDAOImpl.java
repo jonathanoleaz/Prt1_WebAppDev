@@ -575,7 +575,16 @@ public class AlumnoDAOImpl implements AlumnoDAO {
     protected Connection getConn() {
         return conn = Conexion.getConexion();
     }
+    
+    public void closeConn(){
+        try {
+            this.conn.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(AlumnoDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
+    
     public static void main(String[] args) {
 
         try {

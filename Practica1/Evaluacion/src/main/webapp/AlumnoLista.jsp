@@ -42,7 +42,7 @@
                     <td><a href="AlumnoServlet?accion=actualizar&id=${alumnos.noboleta} ">Actualizar</a></td>
                 </tr>
             </c:forEach>
-
+<a href="registrar.jsp">Nueva carrera</a>
         </table>
     </body>
 </html>

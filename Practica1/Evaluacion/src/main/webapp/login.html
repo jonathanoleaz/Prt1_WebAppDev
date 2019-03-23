@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sistema de Evaluación</title>
+    <link rel="shortcut icon" href="images/maletin.png" type="image/x-icon">
+    <!--Style-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+    <link rel="stylesheet" type="text/css" href="login.css">
+    <!-- Bulma Version 0.7.4-->
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.7.4/css/bulma.min.css" />
+    <!--Script-->
+    <script type="text/javascript" src="js/main.js"></script>
+
+    <style type="text/css">
+        html,
+        body {
+            font-family: 'Open Sans';
+            }
+        img {
+            padding: 5px;
+            }
+    </style>
+</head>
+
+<body>
+    <section class="hero is-fullheight is-default is-bold" style="background: #EFEFBB;
+        background: -webkit-linear-gradient(to right, #D4D3DD, #EFEFBB);
+        background: linear-gradient(to right, #D4D3DD, #EFEFBB);">
+        <section class="hero is-dark is-short is-bold">
+        <div class="hero-head">
+            <nav class="navbar is-dark">
+                <div class="container">
+                    <div class="navbar-brand">
+                        <a class="navbar-item" href="index.html">
+                            <h2 class="subtitle has-text-white has-text-weight-bold">SISTEMA PARA LA EVALUACIÓN</h2>
+                        </a>
+                        <span class="navbar-burger burger" data-target="navbarMenu">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </span>
+                    </div>
+                    <div id="navbarMenu" class="navbar-menu">
+                        <div class="navbar-end">
+                            <div class="tabs is-right">
+                                <ul>
+            <!----------------------------------------Links de las páginas------------------------------------------------->
+                                    <li><a href="index.html">Inicio</a></li>
+                                    <li class="is-active"><a href="login.html">Iniciar Sesión</a></li>
+                                    <li><a href="registrar.html">Registrarse</a></li>
+            <!----------------------------------------Links de las páginas------------------------------------------------->
+                                </ul>
+                            </div>
+                        </d iv>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        </section>
+        <div class="hero-body">
+            <div class="container has-text-centered" style="height: 540px;">
+                <div class="column is-4 is-offset-4">
+                    <h3 class="title has-text-dark">Inicio de Sesión</h3>
+                    <p class="subtitle has-text-grey">Por favor inicia sesión para continuar.</p>
+                    <div class="box">
+                        <figure class="avatar">
+                            <img src="images/usuario.png">
+                        </figure>
+<!------------------------------------------------------------------------------------------------------------------------------------------------------------>
+                        <form method="POST">
+                            <div class="field">
+                                <div class="control">
+                                    <!----------------------Usuario------------------------------------------------------->
+                                    <input class="input is-medium is-link" type="text" placeholder="Usuario" name="usuario">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <!----------------------Password------------------------------------------------------->
+                                    <input class="input is-medium is-link" type="password" placeholder="Contraseña" name="password">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="control">
+                                    <div class="select is-medium is-link is-fullwidth">
+                                    <!----------------------Select Tipo Usuario--------------------------------------------->
+                                        <select >
+                                            <option>Profesor</option>
+                                            <option>Alumno</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <input class="button is-block is-link is-large is-fullwidth" type="submit" value="Ingresar"/>
+                        </form>
+<!------------------------------------------------------------------------------------------------------------------------------------------------------------>                        
+                    </div>
+                    <p>
+                <!----------------------------------------Links de las páginas------------------------------------------------->    
+                        <a href="registrar.html" style="color: #2E4053;">Registrarme</a> &nbsp;·&nbsp;
+                <!------------------------------------------------------------------------------------------------------------->
+                        <a href="#" style="color: #2E4053;">Olvidé mi Contraseña</a> &nbsp;·&nbsp;
+                        <a href="#" style="color: #2E4053;">Ayuda</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="js/bulma.js"></script>
+</body>
+
+</html>

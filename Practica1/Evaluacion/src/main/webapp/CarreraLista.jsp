@@ -32,5 +32,6 @@
             </c:forEach>
 
         </table>
+        <a href="CarreraForm.jsp">Nueva carrera</a>
     </body>
 </html>

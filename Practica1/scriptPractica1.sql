@@ -131,3 +131,25 @@ SHOW WARNINGS;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+
+insert into carrera (nombrecarrera, descripcion, duracion) values ('Youtags', 'Fix San', 15);
+insert into carrera (nombrecarrera, descripcion, duracion) values ('Oodoo', 'Zontrax', 77);
+insert into carrera (nombrecarrera, descripcion, duracion) values ('Babbleblab', 'Cardify', 49);
+insert into carrera (nombrecarrera, descripcion, duracion) values ('Realblab', 'Daltfresh', 84);
+insert into carrera (nombrecarrera, descripcion, duracion) values ('Skalith', 'Biodex', 23);
+insert into carrera (nombrecarrera, descripcion, duracion) values ('Feedspan', 'Vagram', 80);
+insert into carrera (nombrecarrera, descripcion, duracion) values ('Skimia', 'Aerified', 51);
+insert into carrera (nombrecarrera, descripcion, duracion) values ('Feedspan', 'Keylex', 57);
+insert into carrera (nombrecarrera, descripcion, duracion) values ('Jabbercube', 'Bytecard', 35);
+insert into carrera (nombrecarrera, descripcion, duracion) values ('Divanoodle', 'Bitchip', 11);
+insert into carrera (nombrecarrera, descripcion, duracion) values ('Katz', 'Sub-Ex', 27);
+insert into carrera (nombrecarrera, descripcion, duracion) values ('Skivee', 'Bitchip', 87);
+insert into carrera (nombrecarrera, descripcion, duracion) values ('Trilia', 'Zamit', 20);
+insert into carrera (nombrecarrera, descripcion, duracion) values ('Kayveo', 'Home Ing', 63);
+insert into carrera (nombrecarrera, descripcion, duracion) values ('Meembee', 'Rank', 89);
+insert into carrera (nombrecarrera, descripcion, duracion) values ('Livefish', 'Zaam-Dox', 50);
+insert into carrera (nombrecarrera, descripcion, duracion) values ('Mudo', 'Lotstring', 73);
+insert into carrera (nombrecarrera, descripcion, duracion) values ('Photofeed', 'Tres-Zap', 72);
+insert into carrera (nombrecarrera, descripcion, duracion) values ('Oyonder', 'Prodder', 83);
+insert into carrera (nombrecarrera, descripcion, duracion) values ('Rhyloo', 'Tresom', 63);

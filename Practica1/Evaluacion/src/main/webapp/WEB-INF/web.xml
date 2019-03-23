@@ -8,6 +8,22 @@
         <servlet-name>AlumnoServlet</servlet-name>
         <servlet-class>Controllers.AlumnoServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ProfesorServlet</servlet-name>
+        <servlet-class>Controllers.ProfesorServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LlenarCarreras</servlet-name>
+        <servlet-class>Controllers.LlenarCarreras</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>MateriaServlet</servlet-name>
+        <servlet-class>Controllers.MateriaServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LlenarCarrerasMateria</servlet-name>
+        <servlet-class>Controllers.LlenarCarrerasMateria</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CarreraServlet</servlet-name>
         <url-pattern>/CarreraServlet</url-pattern>
@@ -15,6 +31,22 @@
     <servlet-mapping>
         <servlet-name>AlumnoServlet</servlet-name>
         <url-pattern>/AlumnoServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProfesorServlet</servlet-name>
+        <url-pattern>/ProfesorServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LlenarCarreras</servlet-name>
+        <url-pattern>/LlenarCarreras</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MateriaServlet</servlet-name>
+        <url-pattern>/MateriaServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LlenarCarrerasMateria</servlet-name>
+        <url-pattern>/LlenarCarrerasMateria</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

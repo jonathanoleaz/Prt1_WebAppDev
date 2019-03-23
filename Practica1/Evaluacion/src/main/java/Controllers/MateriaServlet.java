@@ -15,10 +15,16 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author jonat
  */
-public class CarreraServlet extends HttpServlet {
+public class MateriaServlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, Exception {
+        
+        CarreraDAOImpl daoCarr = new CarreraDAOImpl();
+        Carrera carr = new Carrera();
+        request.setAttribute("listaCarreras", daoCarr.selectAll());
+        
+        
         System.out.println("nada");
         String action = request.getParameter("accion");
         System.out.println(action);
@@ -51,7 +57,7 @@ public class CarreraServlet extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (Exception ex) {
-            Logger.getLogger(CarreraServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MateriaServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -69,7 +75,7 @@ public class CarreraServlet extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (Exception ex) {
-            Logger.getLogger(CarreraServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MateriaServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -86,60 +92,64 @@ public class CarreraServlet extends HttpServlet {
     private void listado(HttpServletRequest request, HttpServletResponse response) {
         try {
             System.out.println("nada");
-            CarreraDAOImpl dao = new CarreraDAOImpl();
+            MateriaDAOImpl dao = new MateriaDAOImpl();
             System.out.println("dd:"+Arrays.toString(dao.selectAll().toArray()));
             request.setAttribute("lista", dao.selectAll());
-            RequestDispatcher vista = request.getRequestDispatcher("CarreraLista.jsp");
+            RequestDispatcher vista = request.getRequestDispatcher("MateriaLista.jsp");
             vista.forward(request, response);
         } catch (Exception ex) {
-            Logger.getLogger(CarreraServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MateriaServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
     private void agregar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, Exception {
         almacenar(request, response);
-        RequestDispatcher vista = request.getRequestDispatcher("CarreraForm.jsp");
+        CarreraDAOImpl daoCarr = new CarreraDAOImpl();
+        Carrera carr = new Carrera();
+        request.setAttribute("listaCarreras", daoCarr.selectAll());
+        
+        RequestDispatcher vista = request.getRequestDispatcher("MateriaForm.jsp");
         vista.forward(request, response);
     }
 
     private void eliminar(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        CarreraDAOImpl dao = new CarreraDAOImpl();
-        Carrera c = new Carrera();
+        MateriaDAOImpl dao = new MateriaDAOImpl();
+        Materia c = new Materia();
         String id = request.getParameter("id");
-        c.setIdcarrera(Integer.parseInt(id));
-        c = dao.getByPrimaryKey(c.getIdcarrera());
+        c.setIdmateria(Integer.parseInt(id));
+        c = dao.getByPrimaryKey(c.getIdmateria());
         dao.delete(c);
         listado(request, response);
 
     }
 
     private void actualizar(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        CarreraDAOImpl dao = new CarreraDAOImpl();
-        Carrera c = new Carrera();
+        MateriaDAOImpl dao = new MateriaDAOImpl();
+        Materia c = new Materia();
         String id = request.getParameter("id");
         System.out.println("id:"+id);
-        c.setIdcarrera(Integer.parseInt(id));
-        c = dao.getByPrimaryKey(c.getIdcarrera());
+        c.setIdmateria(Integer.parseInt(id));
+        c = dao.getByPrimaryKey(c.getIdmateria());
         System.out.println(c.toString());
-        request.setAttribute("carrera", c);
+        request.setAttribute("materia", c);
         
         //almacenarArticulo(request, response);
-        RequestDispatcher vista = request.getRequestDispatcher("CarreraForm.jsp");
+        RequestDispatcher vista = request.getRequestDispatcher("MateriaForm.jsp");
         vista.forward(request, response);
 
     }
 
     private void almacenar(HttpServletRequest request, HttpServletResponse response){
         System.out.println("Guardando carrera");
-        Carrera c = new Carrera();
-        CarreraDAOImpl d = new CarreraDAOImpl();
+        Materia c = new Materia();
+        MateriaDAOImpl d = new MateriaDAOImpl();
         if (request.getParameter("id") == null || request.getParameter("id").isEmpty()) {            
             try {
                 System.out.println("se crea");
 //                c.setIdcarrera(Integer.parseInt(request.getParameter("txtID")));
                 c.setDescripcion(request.getParameter("txtDescripcion"));
-                c.setDuracion(Integer.parseInt(request.getParameter("txtDuracion")));
-                c.setNombrecarrera(request.getParameter("txtNombre"));
+                c.setNombremateria(request.getParameter("txtNombre"));
+                c.setCarreraIdcarrera(new CarreraDAOImpl().getByPrimaryKey(Integer.parseInt(request.getParameter("txtCarrera"))).getIdcarrera());
                 d.insert(c);
                 listado(request, response);
             } catch (Exception ex) {
@@ -147,17 +157,18 @@ public class CarreraServlet extends HttpServlet {
                     ex.printStackTrace();
                     response.sendRedirect("Error.html");
                 } catch (IOException ex1) {
-                    Logger.getLogger(CarreraServlet.class.getName()).log(Level.SEVERE, null, ex1);
+                    Logger.getLogger(MateriaServlet.class.getName()).log(Level.SEVERE, null, ex1);
                 }
             }
         } else {
             try {
                 System.out.println("se actualiza");
                 
-                c.setIdcarrera(Integer.parseInt(request.getParameter("id")));
+                c.setIdmateria(Integer.parseInt(request.getParameter("id")));
                 c.setDescripcion(request.getParameter("txtDescripcion"));
-                c.setDuracion(Integer.parseInt(request.getParameter("txtDuracion")));
-                c.setNombrecarrera(request.getParameter("txtNombre"));
+                c.setNombremateria(request.getParameter("txtNombre"));
+                c.setCarreraIdcarrera(new CarreraDAOImpl().getByPrimaryKey(Integer.parseInt(request.getParameter("txtCarrera"))).getIdcarrera());
+                
                 d.update(c);
                 listado(request, response);
                 
@@ -166,7 +177,7 @@ public class CarreraServlet extends HttpServlet {
                     ex.printStackTrace();
                     response.sendRedirect("Error.html");
                 } catch (IOException ex1) {
-                    Logger.getLogger(CarreraServlet.class.getName()).log(Level.SEVERE, null, ex1);
+                    Logger.getLogger(MateriaServlet.class.getName()).log(Level.SEVERE, null, ex1);
                 }
             }
         }

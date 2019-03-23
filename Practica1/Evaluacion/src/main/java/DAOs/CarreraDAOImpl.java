@@ -492,5 +492,13 @@ public class CarreraDAOImpl implements CarreraDAO
     return conn=Conexion.getConexion();
   }
   
+  public void closeConn(){
+        try {
+            this.conn.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(AlumnoDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+  
     
 }
