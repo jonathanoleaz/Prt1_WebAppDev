@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="ISO-8859-1"%>
 <html>
     <head>
         <meta charset="utf-8">
@@ -40,12 +41,12 @@
                             <div class="navbar-end">
                                 <div class="tabs is-right">
                                     <ul>
-                <!----------------------------------------Links de las páginas------------------------------------------------->
+                                        <!----------------------------------------Links de las páginas------------------------------------------------->
                                         <li><a href="inicioAlumno.html">Inicio</a></li>
                                         <li><a href="hacerExamen.html">Realizar Examen</a></li>
                                         <li class="is-active"><a href="verCalificaciones.html">Ver Mis Calificaciones</a></li>
                                         <li><a href="#">Ayuda</a></li>
-                <!----------------------------------------Links de las páginas------------------------------------------------->
+                                        <!----------------------------------------Links de las páginas------------------------------------------------->
                                     </ul>
                                 </div>
                             </div>
@@ -69,31 +70,26 @@
                             <table class="table is-fullwidth">
                                 <thead>
                                     <tr>
-<!----------------------------------CABECERA DE LA TALBA----------------------------------------------------------->
+                                        <!----------------------------------CABECERA DE LA TALBA----------------------------------------------------------->
                                         <th>ID</th>
                                         <th>MATERIA</th>
-                                        <th>CALIFICACIÓN</th>
-<!----------------------------------------------------------------------------------------------------------------->
+                                        <th>FECHA</th>
+                                        <th>CALIFICACI�N</th>
+                                        <!----------------------------------------------------------------------------------------------------------------->
                                     </tr>
                                 </thead>
                                 <tbody>
-<!----------------------------------CONTENIDO DE LA TALBA----------------------------------------------------------->
-                                    <tr>
-                                        <th>1</th>
-                                        <td>Ciencias Naturales</td>
-                                        <td>10</td>
-                                    </tr>
-                                    <tr>
-                                        <th>2</th>
-                                        <td>Biología</td>
-                                        <td>10</td>
-                                    </tr>
-                                    <tr>
-                                        <th>3</th>
-                                        <td>Historia</td>
-                                        <td>9</td>
-                                    </tr>
-<!----------------------------------------------------------------------------------------------------------------->
+                                    <!----------------------------------CONTENIDO DE LA TALBA----------------------------------------------------------->
+                                    <c:forEach var="resultado" items="${listaResultados}">
+                                        <tr>
+                                            <td><c:out value="${resultado.idresultado}"/></td>
+                                            <td><c:out value="${resultado.materiaIdmateria}"/></td>
+                                            <td><c:out value="${resultado.fecha}"/></td>
+                                            <td><c:out value="${resultado.calificacion}"/></td>
+                                            
+                                        </tr>
+                                    </c:forEach>
+                                    <!----------------------------------------------------------------------------------------------------------------->
                                 </tbody>
                             </table>  
                         </article>

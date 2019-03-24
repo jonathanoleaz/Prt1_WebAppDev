@@ -188,7 +188,7 @@ public class AlumnoServlet extends HttpServlet {
                 UsuarioDAOImpl usuarioDao=new UsuarioDAOImpl();
                 Usuario usuario=new Usuario();
                 usuario.setNombreUsuario(c.getNombre()+c.getPaterno()+c.getMaterno());
-                
+                usuario.setTipoUsuario(1);
                 usuario.setPassword(BCrypt.hashpw(usuario.getNombreUsuario(), BCrypt.gensalt()));
                 usuarioDao.insert(usuario);
                 
@@ -309,18 +309,19 @@ public class AlumnoServlet extends HttpServlet {
                 c.setPaterno(request.getParameter("txtPaterno"));
                 c.setDomicilio(request.getParameter("txtDomicilio"));
                 c.setEmail(request.getParameter("txtEmail"));
-
+                                                
                 /*Usuario*/
                 UsuarioDAOImpl usuarioDao=new UsuarioDAOImpl();
                 Usuario usuario=new Usuario();
                 usuario.setNombreUsuario(c.getNombre()+c.getPaterno()+c.getMaterno());
-                usuario.setPassword(usuario.getNombreUsuario());
+                usuario.setTipoUsuario(0);
+                usuario.setPassword(BCrypt.hashpw(usuario.getNombreUsuario(), BCrypt.gensalt()));
                 usuarioDao.insert(usuario);
                 
                 List foundUsers=usuarioDao.selectAll();
                 usuario=(Usuario) foundUsers.get(foundUsers.size()-1);
                 
-                /*Usuario*/
+                /*Usuario*/                
                 
                 c.setUsuarioIdusuario(usuario.getIdusuario());
                 c.setCarreraIdcarrera(Integer.parseInt(request.getParameter("txtCarrera")));

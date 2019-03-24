@@ -94,10 +94,32 @@ public class ExamenServlet extends HttpServlet {
     private void listado(HttpServletRequest request, HttpServletResponse response) {
         try {
             System.out.println("nada");
-            ExamenDAOImpl dao = new ExamenDAOImpl();
-            System.out.println("dd:" + Arrays.toString(dao.selectAll().toArray()));
-            request.setAttribute("lista", dao.selectAll());
-            RequestDispatcher vista = request.getRequestDispatcher("ExamenLista.jsp");
+            int noBoleta=Integer.parseInt(request.getParameter("boleta"));
+            //noBoleta=1005;
+            ResultadoexamenDAOImpl daoResult = new ResultadoexamenDAOImpl();
+            MateriaDAOImpl daoMat=new MateriaDAOImpl();
+            Materia mat=new Materia();
+            ArrayList materias=new ArrayList();
+            
+            ArrayList <Resultadoexamen>resultadosExamen=new ArrayList();
+            
+            ArrayList <Resultadoexamen>resultadosExamenTodos=(ArrayList) daoResult.selectAll();
+            
+            for(int i=0; i<resultadosExamenTodos.size(); i++)
+            {
+                if(resultadosExamenTodos.get(i).getAlumnoNoboleta()==noBoleta){
+                    resultadosExamen.add(resultadosExamenTodos.get(i));
+                    materias.add(daoMat.getByPrimaryKey(resultadosExamenTodos.get(i).getMateriaIdmateria()));
+                }
+            }
+            
+            
+            
+            System.out.println("dd:" + Arrays.toString(daoResult.selectAll().toArray()));
+            request.setAttribute("listaResultados", resultadosExamen);
+            request.setAttribute("listaMaterias", materias);
+            
+            RequestDispatcher vista = request.getRequestDispatcher("VerCalificaciones.jsp");
             vista.forward(request, response);
         } catch (Exception ex) {
             Logger.getLogger(ExamenServlet.class.getName()).log(Level.SEVERE, null, ex);
@@ -258,7 +280,8 @@ public class ExamenServlet extends HttpServlet {
                 
                 pregDao.insert(preg);
                 
-                listado(request, response);
+                //listado(request, response);
+                response.sendRedirect("inicioProfesor.html");
             } catch (Exception ex) {
                 try {
                     ex.printStackTrace();

@@ -40,6 +40,10 @@
         <servlet-name>CalificacionesTodas</servlet-name>
         <servlet-class>VisoresPDF.CalificacionesTodas</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>InicioSesionServlet</servlet-name>
+        <servlet-class>Controllers.InicioSesionServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CarreraServlet</servlet-name>
         <url-pattern>/CarreraServlet</url-pattern>
@@ -79,6 +83,10 @@
     <servlet-mapping>
         <servlet-name>CalificacionesTodas</servlet-name>
         <url-pattern>/CalificacionesTodas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InicioSesionServlet</servlet-name>
+        <url-pattern>/InicioSesionServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

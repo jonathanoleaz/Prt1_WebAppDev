@@ -2,10 +2,10 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="ISO-8859-1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sistema de EvaluaciÃ³n</title>
+    <title>Sistema de Evaluación</title>
     <link rel="shortcut icon" href="images/maletin.png" type="image/x-icon">
     <!--Style-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -37,7 +37,7 @@
                 <div class="container">
                     <div class="navbar-brand">
                         <a class="navbar-item" href="index.html">
-                            <h2 class="subtitle has-text-white has-text-weight-bold">SISTEMA PARA LA EVALUACIÃ“N</h2>
+                            <h2 class="subtitle has-text-white has-text-weight-bold">SISTEMA PARA LA EVALUACIÓN</h2>
                         </a>
                         <span class="navbar-burger burger" data-target="navbarMenu">
                             <span></span>
@@ -49,14 +49,14 @@
                         <div class="navbar-end">
                             <div class="tabs is-right">
                                 <ul>
-            <!----------------------------------------Links de las pÃ¡ginas------------------------------------------------->
+            <!----------------------------------------Links de las páginas------------------------------------------------->
                                     <li><a href="index.html">Inicio</a></li>
-                                    <li class="is-active"><a href="login.html">Iniciar SesiÃ³n</a></li>
-                                    <li><a href="registrar.html">Registrarse</a></li>
-            <!----------------------------------------Links de las pÃ¡ginas------------------------------------------------->
+                                    <li class="is-active"><a href="login.html">Iniciar Sesión</a></li>
+                                    <li><a href="LlenarCarreras">Registrarse</a></li>
+            <!----------------------------------------Links de las páginas------------------------------------------------->
                                 </ul>
                             </div>
-                        </d iv>
+                        </div>
                     </div>
                 </div>
             </nav>
@@ -65,14 +65,14 @@
         <div class="hero-body">
             <div class="container has-text-centered" style="height: 540px;">
                 <div class="column is-4 is-offset-4">
-                    <h3 class="title has-text-dark">Inicio de SesiÃ³n</h3>
-                    <p class="subtitle has-text-grey">Por favor inicia sesiÃ³n para continuar.</p>
+                    <h3 class="title has-text-dark">Inicio de Sesión</h3>
+                    <p class="subtitle has-text-grey">Por favor inicia sesión para continuar.</p>
                     <div class="box">
                         <figure class="avatar">
                             <img src="images/usuario.png">
                         </figure>
 <!------------------------------------------------------------------------------------------------------------------------------------------------------------>
-                        <form method="POST">
+                        <form method="POST" action="InicioSesionServlet">
                             <div class="field">
                                 <div class="control">
                                     <!----------------------Usuario------------------------------------------------------->
@@ -83,7 +83,7 @@
                             <div class="field">
                                 <div class="control">
                                     <!----------------------Password------------------------------------------------------->
-                                    <input class="input is-medium is-link" type="password" placeholder="ContraseÃ±a" name="password">
+                                    <input class="input is-medium is-link" type="password" placeholder="Contraseña" name="password">
                                 </div>
                             </div>
                             <div class="field">
@@ -102,10 +102,10 @@
 <!------------------------------------------------------------------------------------------------------------------------------------------------------------>                        
                     </div>
                     <p>
-                <!----------------------------------------Links de las pÃ¡ginas------------------------------------------------->    
-                        <a href="registrar.html" style="color: #2E4053;">Registrarme</a> &nbsp;Â·&nbsp;
+                <!----------------------------------------Links de las páginas------------------------------------------------->    
+                        <a href="LlenarCarreras" style="color: #2E4053;">Registrarme</a> &nbsp;·&nbsp;
                 <!------------------------------------------------------------------------------------------------------------->
-                        <a href="#" style="color: #2E4053;">OlvidÃ© mi ContraseÃ±a</a> &nbsp;Â·&nbsp;
+                        <a href="#" style="color: #2E4053;">Olvidé mi Contraseña</a> &nbsp;·&nbsp;
                         <a href="#" style="color: #2E4053;">Ayuda</a>
                     </p>
                 </div>
