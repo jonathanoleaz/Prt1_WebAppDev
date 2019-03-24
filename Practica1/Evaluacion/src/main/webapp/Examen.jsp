@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -39,13 +41,13 @@
                         <div id="navbarMenu" class="navbar-menu">
                             <div class="navbar-end">
                                 <div class="tabs is-right">
-                        <!----------------------------------------Links de las páginas------------------------------------------------->
+                                    <!----------------------------------------Links de las páginas------------------------------------------------->
                                     <ul>
                                         <li><a href="inicioAlumno.html">Inicio</a></li>
                                         <li class="is-active"><a href="hacerExamen.html">Realizar Examen</a></li>
                                         <li><a href="verCalificaciones.html">Ver Mis Calificaciones</a></li>
                                         <li><a href="#">Ayuda</a></li>
-                        <!----------------------------------------Links de las páginas------------------------------------------------->
+                                        <!----------------------------------------Links de las páginas------------------------------------------------->
                                     </ul>
                                 </div>
                             </div>
@@ -82,57 +84,73 @@
                                 <div class="column"></div>
                                 <div class="column is-half">
 
-<!----------------------------------FORMULARIO----------------------------------------------------------------------------------------->
-                                    <form method="POST">
-        <!----------------------------------PREGUNTA 1------------------------------------------------------------------------------->
+                                    <!----------------------------------FORMULARIO----------------------------------------------------------------------------------------->
+                                    <form method="POST" name="examenForm" id="alumnoForm"
+                                          action="ExamenServlet?accion=guardar&id=${examen.idexamen}">
+                                        <input class="input is-medium is-link" type="text" placeholder="ID" name="id" readonly="readonly"
+                                               value="<c:out value="${examen.idexamen}"/>">
+                                        <!----------------------------------PREGUNTA 1------------------------------------------------------------------------------->
                                         <div class="tabcontent tabcontent2" id="Pregunta1">
+                                            <input class="input is-medium is-link" type="text" placeholder="ID" name="id0" readonly="readonly"
+                                               value="<c:out value="${preg0.idpregunta}"/>">
+                                            
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-medium is-link" type="text" placeholder="Pregunta 1" name="pre1">
+                                                    <input class="input is-medium is-link" type="text" placeholder="Pregunta 1" name="pre1"
+                                                           value="<c:out value="${preg0.descripcion}"/>">
                                                 </div>
                                             </div>
                                             <div class="field ">
                                                 <div class="control">
-                                                    <input class="input is-short is-link" type="text" placeholder="Opción 1" name="pre1opc1">
+                                                    <input class="input is-short is-link" type="text" placeholder="Opción 1" name="pre1opc1"
+                                                           value="<c:out value="${preg0.opcion1}"/>">
                                                 </div>
                                             </div>
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-short is-link" type="text" placeholder="Opción 2" name="pre1opc2">
+                                                    <input class="input is-short is-link" type="text" placeholder="Opción 2" name="pre1opc2"
+                                                           value="<c:out value="${preg0.opcion2}"/>">
                                                 </div>
                                             </div>
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-short is-link" type="text" placeholder="Opción 3" name="pre1opc3">
+                                                    <input class="input is-short is-link" type="text" placeholder="Opción 3" name="pre1opc3"
+                                                           value="<c:out value="${preg0.opcion3}"/>">
                                                 </div>
                                             </div>
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-short is-link" type="number" min="1" max="3" name="res1">
+                                                    <input class="input is-short is-link" type="number" min="1" max="3" name="res1" value="1">
                                                 </div>
                                             </div>
                                         </div>
 
-        <!----------------------------------PREGUNTA 2------------------------------------------------------------------------------->
+                                        <!----------------------------------PREGUNTA 2------------------------------------------------------------------------------->
                                         <div class="tabcontent" id="Pregunta2">
+                                            <input class="input is-medium is-link" type="text" placeholder="ID" name="id1" readonly="readonly"
+                                               value="<c:out value="${preg1.idpregunta}"/>">
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-medium is-link" type="text" placeholder="Pregunta 2" name="pre2">
+                                                    <input class="input is-medium is-link" type="text" placeholder="Pregunta 2" name="pre2"
+                                                           value="<c:out value="${preg1.descripcion}"/>">
                                                 </div>
                                             </div>
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-short is-link" type="text" placeholder="Opción 1" name="pre2opc1">
+                                                    <input class="input is-short is-link" type="text" placeholder="Opción 1" name="pre2opc1"
+                                                           value="<c:out value="${preg1.opcion1}"/>">
                                                 </div>
                                             </div>
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-short is-link" type="text" placeholder="Opción 2" name="pre2opc2">
+                                                    <input class="input is-short is-link" type="text" placeholder="Opción 2" name="pre2opc2"
+                                                           value="<c:out value="${preg1.opcion2}"/>">
                                                 </div>
                                             </div>
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-short is-link" type="text" placeholder="Opción 3" name="pre2opc3">
+                                                    <input class="input is-short is-link" type="text" placeholder="Opción 3" name="pre2opc3"
+                                                           value="<c:out value="${preg1.opcion3}"/>">
                                                 </div>
                                             </div>
                                             <div class="field">
@@ -142,53 +160,66 @@
                                             </div>
                                         </div>
 
-        <!----------------------------------PREGUNTA 3------------------------------------------------------------------------------->
+                                        <!----------------------------------PREGUNTA 3------------------------------------------------------------------------------->
                                         <div class="tabcontent" id="Pregunta3">
+                                            <input class="input is-medium is-link" type="text" placeholder="ID" name="id2" readonly="readonly"
+                                               value="<c:out value="${preg2.idpregunta}"/>">
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-medium is-link" type="text" placeholder="Pregunta 3" name="pre3">
+                                                    <input class="input is-medium is-link" type="text" placeholder="Pregunta 3" name="pre3"
+                                                           value="<c:out value="${preg2.descripcion}"/>">
                                                 </div>
                                             </div>
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-short is-link" type="text" placeholder="Opción 1" name="pre3opc1">
+                                                    <input class="input is-short is-link" type="text" placeholder="Opción 1" name="pre3opc1"
+                                                           value="<c:out value="${preg2.opcion1}"/>">
                                                 </div>
                                             </div>
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-short is-link" type="text" placeholder="Opción 2" name="pre3opc2">
+                                                    <input class="input is-short is-link" type="text" placeholder="Opción 2" name="pre3opc2"
+                                                           value="<c:out value="${preg2.opcion2}"/>">
                                                 </div>
                                             </div>
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-short is-link" type="text" placeholder="Opción 3" name="pre3opc3">
+                                                    <input class="input is-short is-link" type="text" placeholder="Opción 3" name="pre3opc3"
+                                                           value="<c:out value="${preg2.opcion3}"/>">
                                                 </div>
                                             </div>
                                             <div class="control">
                                                 <input class="input is-short is-link" type="number" min="1" max="3" name="res3">
-                                             </div>
+                                            </div>
                                         </div>
 
-        <!----------------------------------PREGUNTA 4------------------------------------------------------------------------------->
+                                        <!----------------------------------PREGUNTA 4------------------------------------------------------------------------------->
                                         <div class="tabcontent" id="Pregunta4">
+                                            <input class="input is-medium is-link" type="text" placeholder="ID" name="id3" readonly="readonly"
+                                               value="<c:out value="${preg3.idpregunta}"/>">
+                                            
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-medium is-link" type="text" placeholder="Pregunta 4" name="pre4">
+                                                    <input class="input is-medium is-link" type="text" placeholder="Pregunta 4" name="pre4"
+                                                           value="<c:out value="${preg3.descripcion}"/>">
                                                 </div>
                                             </div>
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-short is-link" type="text" placeholder="Opción 1" name="pre4opc1">
+                                                    <input class="input is-short is-link" type="text" placeholder="Opción 1" name="pre4opc1"
+                                                           value="<c:out value="${preg3.opcion1}"/>">
                                                 </div>
                                             </div>
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-short is-link" type="text" placeholder="Opción 2" name="pre4opc2">
+                                                    <input class="input is-short is-link" type="text" placeholder="Opción 2" name="pre4opc2"
+                                                           value="<c:out value="${preg3.opcion2}"/>">
                                                 </div>
                                             </div>
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-short is-link" type="text" placeholder="Opción 3" name="pre4opc3">
+                                                    <input class="input is-short is-link" type="text" placeholder="Opción 3" name="pre4opc3"
+                                                           value="<c:out value="${preg3.opcion3}"/>">
                                                 </div>
                                             </div>
                                             <div class="control">
@@ -196,26 +227,32 @@
                                             </div>
                                         </div>
 
-        <!----------------------------------PREGUNTA 5------------------------------------------------------------------------------->
+                                        <!----------------------------------PREGUNTA 5------------------------------------------------------------------------------->
                                         <div class="tabcontent" id="Pregunta5">
+                                            <input class="input is-medium is-link" type="text" placeholder="ID" name="id4" readonly="readonly"
+                                               value="<c:out value="${preg4.idpregunta}"/>">
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-medium is-link" type="text" placeholder="Pregunta 5" name="pre5">
+                                                    <input class="input is-medium is-link" type="text" placeholder="Pregunta 5" name="pre5"
+                                                           value="<c:out value="${preg4.descripcion}"/>">
                                                 </div>
                                             </div>
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-short is-link" type="text" placeholder="Opción 1" name="pre5opc1">
+                                                    <input class="input is-short is-link" type="text" placeholder="Opción 1" name="pre5opc1"
+                                                           value="<c:out value="${preg4.opcion1}"/>">
                                                 </div>
                                             </div>
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-short is-link" type="text" placeholder="Opción 2" name="pre5opc2">
+                                                    <input class="input is-short is-link" type="text" placeholder="Opción 2" name="pre5opc2"
+                                                           value="<c:out value="${preg4.opcion2}"/>">
                                                 </div>
                                             </div>
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-short is-link" type="text" placeholder="Opción 3" name="pre5opc3">
+                                                    <input class="input is-short is-link" type="text" placeholder="Opción 3" name="pre5opc3"
+                                                           value="<c:out value="${preg4.opcion3}"/>">
                                                 </div>
                                             </div>
                                             <div class="control">
@@ -223,26 +260,32 @@
                                             </div>
                                         </div>
 
-        <!----------------------------------PREGUNTA 6------------------------------------------------------------------------------->
+                                        <!----------------------------------PREGUNTA 6------------------------------------------------------------------------------->
                                         <div class="tabcontent" id="Pregunta6">
+                                            <input class="input is-medium is-link" type="text" placeholder="ID" name="id5" readonly="readonly"
+                                               value="<c:out value="${preg5.idpregunta}"/>">
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-medium is-link" type="text" placeholder="Pregunta 6" name="pre6">
+                                                    <input class="input is-medium is-link" type="text" placeholder="Pregunta 6" name="pre6"
+                                                           value="<c:out value="${preg5.descripcion}"/>">
                                                 </div>
                                             </div>
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-short is-link" type="text" placeholder="Opción 1" name="pre6opc1">
+                                                    <input class="input is-short is-link" type="text" placeholder="Opción 1" name="pre6opc1"
+                                                           value="<c:out value="${preg5.opcion1}"/>">
                                                 </div>
                                             </div>
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-short is-link" type="text" placeholder="Opción 2" name="pre6opc2">
+                                                    <input class="input is-short is-link" type="text" placeholder="Opción 2" name="pre6opc2"
+                                                           value="<c:out value="${preg5.opcion2}"/>">
                                                 </div>
                                             </div>
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-short is-link" type="text" placeholder="Opción 3" name="pre6opc3">
+                                                    <input class="input is-short is-link" type="text" placeholder="Opción 3" name="pre6opc3"
+                                                           value="<c:out value="${preg5.opcion3}"/>">
                                                 </div>
                                             </div>
                                             <div class="control">
@@ -250,26 +293,32 @@
                                             </div>
                                         </div>
 
-        <!----------------------------------PREGUNTA 7------------------------------------------------------------------------------->
+                                        <!----------------------------------PREGUNTA 7------------------------------------------------------------------------------->
                                         <div class="tabcontent" id="Pregunta7">
+                                            <input class="input is-medium is-link" type="text" placeholder="ID" name="id6" readonly="readonly"
+                                               value="<c:out value="${preg6.idpregunta}"/>">
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-medium is-link" type="text" placeholder="Pregunta 7" name="pre7">
+                                                    <input class="input is-medium is-link" type="text" placeholder="Pregunta 7" name="pre7"
+                                                           value="<c:out value="${preg6.descripcion}"/>">
                                                 </div>
                                             </div>
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-short is-link" type="text" placeholder="Opción 1" name="pre7opc1">
+                                                    <input class="input is-short is-link" type="text" placeholder="Opción 1" name="pre7opc1"
+                                                           value="<c:out value="${preg6.opcion1}"/>">
                                                 </div>
                                             </div>
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-short is-link" type="text" placeholder="Opción 2" name="pre7opc2">
+                                                    <input class="input is-short is-link" type="text" placeholder="Opción 2" name="pre7opc2" 
+                                                           value="<c:out value="${preg6.opcion2}"/>">
                                                 </div>
                                             </div>
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-short is-link" type="text" placeholder="Opción 3" name="pre7opc3">
+                                                    <input class="input is-short is-link" type="text" placeholder="Opción 3" name="pre7opc3"
+                                                           value="<c:out value="${preg6.opcion3}"/>">
                                                 </div>
                                             </div>
                                             <div class="control">
@@ -277,39 +326,45 @@
                                             </div>
                                         </div>
 
-        <!----------------------------------PREGUNTA 8------------------------------------------------------------------------------->
+                                        <!----------------------------------PREGUNTA 8------------------------------------------------------------------------------->
                                         <div class="tabcontent" id="Pregunta8">
+                                            <input class="input is-medium is-link" type="text" placeholder="ID" name="id7" readonly="readonly"
+                                               value="<c:out value="${preg7.idpregunta}"/>">
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-medium is-link" type="text" placeholder="Pregunta 8" name="pre8">
+                                                    <input class="input is-medium is-link" type="text" placeholder="Pregunta 8" name="pre8"
+                                                           value="<c:out value="${preg7.descripcion}"/>">
                                                 </div>
                                             </div>
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-short is-link" type="text" placeholder="Opción 1" name="pre8opc1">
+                                                    <input class="input is-short is-link" type="text" placeholder="Opción 1" name="pre8opc1"
+                                                           value="<c:out value="${preg7.opcion1}"/>">
                                                 </div>
                                             </div>
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-short is-link" type="text" placeholder="Opción 2" name="pre8opc2">
+                                                    <input class="input is-short is-link" type="text" placeholder="Opción 2" name="pre8opc2"
+                                                           value="<c:out value="${preg7.opcion2}"/>">
                                                 </div>
                                             </div>
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-short is-link" type="text" placeholder="Opción 3" name="pre8opc3">
+                                                    <input class="input is-short is-link" type="text" placeholder="Opción 3" name="pre8opc3"
+                                                           value="<c:out value="${preg7.opcion3}"/>">
                                                 </div>
                                             </div>
                                             <div class="control">
                                                 <input class="input is-short is-link" type="number" min="1" max="3" name="res8">
                                             </div>
                                             <br>
-                                <!----------------------------------BOTÓN---------------------------------------->
+                                            <!----------------------------------BOTÓN---------------------------------------->
                                             <div class="field">
                                                 <input type="submit" class="button is-block is-link is-large is-fullwidth" value="Enviar Respuestas">
                                             </div>
                                         </div>
                                     </form>
-<!----------------------------------FORMULARIO----------------------------------------------------------------------------------------->
+                                    <!----------------------------------FORMULARIO----------------------------------------------------------------------------------------->
                                 </div>
                                 <div class="column"></div>
                             </div>
@@ -344,19 +399,19 @@
             <script src="js/bulma.js"></script>
         </footer>
         <script>
-            function openTab(evt, opc) {
-                var i, tabcontent, tablinks;
-                tabcontent = document.getElementsByClassName("tabcontent");
-                for (i = 0; i < tabcontent.length; i++) {
-                  tabcontent[i].style.display = "none";
-                }
-                tablinks = document.getElementsByClassName("tablinks");
-                for (i = 0; i < tablinks.length; i++) {
-                  tablinks[i].className = tablinks[i].className.replace(" is-active", "");
-                }
-                document.getElementById(opc).style.display = "block";
-                evt.currentTarget.className += " is-active";
-            }
+                                        function openTab(evt, opc) {
+                                            var i, tabcontent, tablinks;
+                                            tabcontent = document.getElementsByClassName("tabcontent");
+                                            for (i = 0; i < tabcontent.length; i++) {
+                                                tabcontent[i].style.display = "none";
+                                            }
+                                            tablinks = document.getElementsByClassName("tablinks");
+                                            for (i = 0; i < tablinks.length; i++) {
+                                                tablinks[i].className = tablinks[i].className.replace(" is-active", "");
+                                            }
+                                            document.getElementById(opc).style.display = "block";
+                                            evt.currentTarget.className += " is-active";
+                                        }
         </script>
     </body>
 </html>

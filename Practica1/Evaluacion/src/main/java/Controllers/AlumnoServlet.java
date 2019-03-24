@@ -3,6 +3,7 @@ package Controllers;
 import DAOs.*;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -10,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.mindrot.jbcrypt.BCrypt;
 
 public class AlumnoServlet extends HttpServlet {
 
@@ -167,6 +169,8 @@ public class AlumnoServlet extends HttpServlet {
         System.out.println("Guardando carrera");
         Alumno c = new Alumno();
         AlumnoDAOImpl d = new AlumnoDAOImpl();
+        
+        
         System.out.println(request.getParameter("txtID"));
 
         if (request.getParameter("txtID") == null || request.getParameter("txtID").isEmpty()) {
@@ -180,11 +184,26 @@ public class AlumnoServlet extends HttpServlet {
                 c.setDomicilio(request.getParameter("txtDomicilio"));
                 c.setEmail(request.getParameter("txtEmail"));
 
-                c.setUsuarioIdusuario(5);
+                /*Usuario*/
+                UsuarioDAOImpl usuarioDao=new UsuarioDAOImpl();
+                Usuario usuario=new Usuario();
+                usuario.setNombreUsuario(c.getNombre()+c.getPaterno()+c.getMaterno());
+                
+                usuario.setPassword(BCrypt.hashpw(usuario.getNombreUsuario(), BCrypt.gensalt()));
+                usuarioDao.insert(usuario);
+                
+                List foundUsers=usuarioDao.selectAll();
+                usuario=(Usuario) foundUsers.get(foundUsers.size()-1);
+                
+                /*Usuario*/
+                
+                c.setUsuarioIdusuario(usuario.getIdusuario());
                 //c.setUsuarioIdusuario(Integer.parseInt(request.getParameter("txtUsuario")));
                 c.setCarreraIdcarrera(Integer.parseInt(request.getParameter("txtCarrera")));
 
                 d.insert(c);
+                
+                
                 listado(request, response);
             } catch (Exception ex) {
                 try {
@@ -291,11 +310,25 @@ public class AlumnoServlet extends HttpServlet {
                 c.setDomicilio(request.getParameter("txtDomicilio"));
                 c.setEmail(request.getParameter("txtEmail"));
 
-                c.setUsuarioIdusuario(5);
+                /*Usuario*/
+                UsuarioDAOImpl usuarioDao=new UsuarioDAOImpl();
+                Usuario usuario=new Usuario();
+                usuario.setNombreUsuario(c.getNombre()+c.getPaterno()+c.getMaterno());
+                usuario.setPassword(usuario.getNombreUsuario());
+                usuarioDao.insert(usuario);
+                
+                List foundUsers=usuarioDao.selectAll();
+                usuario=(Usuario) foundUsers.get(foundUsers.size()-1);
+                
+                /*Usuario*/
+                
+                c.setUsuarioIdusuario(usuario.getIdusuario());
                 c.setCarreraIdcarrera(Integer.parseInt(request.getParameter("txtCarrera")));
 
                 System.out.println("Prof to register: "+c.toString());
                 d.insert(c);
+                
+                
                 listadoProfesor(request, response);
             } catch (Exception ex) {
                 try {

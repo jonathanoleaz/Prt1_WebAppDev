@@ -5,7 +5,7 @@
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -20,7 +20,7 @@
                 <table>
                     <tr>
                         <th>ID:  </th>
-                        <td><input type="number" name="txtID" 
+                        <td><input type="number" name="id" readonly="readonly" 
                                    value="<c:out value="${materia.idmateria}"/>"/>
                         </td>
                     </tr>
@@ -31,7 +31,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <th>DescripciÃ³n: </th>
+                        <th>Descripción: </th>
                         <td><input type="text" name="txtDescripcion"
                                    value="<c:out value="${materia.descripcion}"/>"/>
                         </td>

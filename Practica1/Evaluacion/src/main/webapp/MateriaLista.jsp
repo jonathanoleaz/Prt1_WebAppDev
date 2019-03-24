@@ -5,7 +5,7 @@
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -17,7 +17,7 @@
             <tr>
                 <th>ID</th>
                 <th>Nombre</th>
-                <th>DescripciÃ³n</th>
+                <th>Descripción</th>
                 <th>Carrera</th>
                 <th>E</th>
                 <th>E</th>
@@ -28,12 +28,12 @@
                     <td><c:out value="${materias.nombremateria}"/></td>
                     <td><c:out value="${materias.descripcion}"/></td>
                     <td><c:out value="${materias.carreraIdcarrera}"/></td>
-                    <td><a href="CarreraServlet?accion=eliminar&id=${materias.idmateria} ">Eliminar</a></td>
-                    <td><a href="CarreraServlet?accion=actualizar&id=${materias.idmateria} ">Actualizar</a></td>
+                    <td><a href="MateriaServlet?accion=eliminar&id=${materias.idmateria} ">Eliminar</a></td>
+                    <td><a href="MateriaServlet?accion=actualizar&id=${materias.idmateria} ">Actualizar</a></td>
                 </tr>
             </c:forEach>
 
         </table>
-        <a href="MateriaForm.jsp">Nueva carrera</a>
+        <a href="LlenarCarrerasMateria">Nueva carrera</a>
     </body>
 </html>

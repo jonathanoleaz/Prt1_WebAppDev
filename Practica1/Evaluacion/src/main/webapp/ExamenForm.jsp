@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -40,12 +42,12 @@
                             <div class="navbar-end">
                                 <div class="tabs is-right">
                                     <ul>
-                        <!----------------------------------------Links de las p谩ginas------------------------------------------------->
+                                        <!----------------------------------------Links de las p谩ginas------------------------------------------------->
                                         <li><a href="inicioProfesor.html">Inicio</a></li>
-                                        <li class="is-active"><a href="crearExamen.html">Crear Examen</a></li>
-                                        <li><a href="verGrafica.html">Ver Estad铆sticas</a></li>
+                                        <li class="is-active"><a href="ExamenForm.html">Crear Examen</a></li>
+                                        <li><a href="verGrafica.html">Ver Estad韘ticas</a></li>
                                         <li><a href="#">Ayuda</a></li>
-                        <!----------------------------------------Links de las p谩ginas------------------------------------------------->
+                                        <!----------------------------------------Links de las p谩ginas------------------------------------------------->
                                     </ul>
                                 </div>
                             </div>
@@ -56,7 +58,7 @@
             <div class="hero-body" >
                 <div class="container has-text-centered">
                     <h1 class="title">
-                        Creaci贸n de cuestionario para la evaluaci贸n
+                        Creaci髇 de cuestionario para la evaluaci髇
                     </h1>
                 </div>
             </div>
@@ -82,212 +84,261 @@
                             <div class="columns">
                                 <div class="column"></div>
                                 <div class="column is-half">
-<!----------------------------------FORMULARIO----------------------------------------------------------------------------------------->
-                                    <form method="POST">
-<!----------------------------------T脥TULO------------------------------------------------------------------------------->
+                                    <!----------------------------------FORMULARIO----------------------------------------------------------------------------------------->
+                                    <form method="POST" name="examenForm" id="alumnoForm"
+                                          action="ExamenServlet?accion=guardar">
+                                        <!----------------------------------T脥TULO------------------------------------------------------------------------------->
                                         <div class="field tabcontent tabcontent2" id="Titulo">
                                             <div class="control">
-                                                <input class="input is-medium is-link" type="text" placeholder="T铆tulo del cuestionario" name="titulo">
+                                                <input class="input is-medium is-link" type="text" placeholder="T韙ulo del cuestionario" type="text" name="txtNombre">
+                                                Materia: <select name="txtMateria">
+                                                    <c:forEach var="materias" items="${listaMaterias}">
+                                                        <option value="${materias.idmateria}">${materias.nombremateria}</option>
+                                                    </c:forEach>
+                                                </select>
                                             </div>
                                         </div>
-<!----------------------------------PREGUNTA 1------------------------------------------------------------------------------->
+                                        <!----------------------------------PREGUNTA 1------------------------------------------------------------------------------->
                                         <div class="tabcontent" id="Pregunta1">
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-medium is-link" type="text" placeholder="Pregunta 1" name="pre1">
+                                                    <input class="input is-medium is-link" type="text" placeholder="Pregunta 1" name="txtDescripPreg1">
                                                 </div>
                                             </div>
                                             <div class="field ">
                                                 <div class="control">
-                                                    <input class="input is-short is-link" type="text" placeholder="Opci贸n 1" name="pre1opc1">
+                                                    <input class="input is-short is-link" type="text" placeholder="Opci贸n 1" name="txtOp1Preg1">
                                                 </div>
                                             </div>
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-short is-link" type="text" placeholder="Opci贸n 2" name="pre1opc2">
+                                                    <input class="input is-short is-link" type="text" placeholder="Opci贸n 2" name="txtOp2Preg1">
                                                 </div>
                                             </div>
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-short is-link" type="text" placeholder="Opci贸n 3" name="pre1opc3">
+                                                    <input class="input is-short is-link" type="text" placeholder="Opci贸n 3" name="txtOp3Preg1">
                                                 </div>
                                             </div>
+
+
+                                            <select name="txtOpCorrPreg1">
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                            </select>
                                         </div>
 
-<!----------------------------------PREGUNTA 2------------------------------------------------------------------------------->
+                                        <!----------------------------------PREGUNTA 2------------------------------------------------------------------------------->
                                         <div class="tabcontent" id="Pregunta2">
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-medium is-link" type="text" placeholder="Pregunta 2" name="pre2">
+                                                    <input class="input is-medium is-link" type="text" placeholder="Pregunta 2" name="txtDescripPreg2">
                                                 </div>
                                             </div>
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-short is-link" type="text" placeholder="Opci贸n 1" name="pre2opc1">
+                                                    <input class="input is-short is-link" type="text" placeholder="Opci贸n 1" name="txtOp1Preg2">
                                                 </div>
                                             </div>
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-short is-link" type="text" placeholder="Opci贸n 2" name="pre2opc2">
+                                                    <input class="input is-short is-link" type="text" placeholder="Opci贸n 2" name="txtOp2Preg2">
                                                 </div>
                                             </div>
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-short is-link" type="text" placeholder="Opci贸n 3" name="pre2opc3">
+                                                    <input class="input is-short is-link" type="text" placeholder="Opci贸n 3" name="txtOp3Preg2">
                                                 </div>
                                             </div>
+                                            <select name="txtOpCorrPreg2">
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                            </select>
                                         </div>
 
-<!----------------------------------PREGUNTA 3------------------------------------------------------------------------------->
+                                        <!----------------------------------PREGUNTA 3------------------------------------------------------------------------------->
                                         <div class="tabcontent" id="Pregunta3">
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-medium is-link" type="text" placeholder="Pregunta 3" name="pre3">
+                                                    <input class="input is-medium is-link" type="text" placeholder="Pregunta 3" name="txtDescripPreg3">
                                                 </div>
                                             </div>
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-short is-link" type="text" placeholder="Opci贸n 1" name="pre3opc1">
+                                                    <input class="input is-short is-link" type="text" placeholder="Opci贸n 1" name="txtOp1Preg3">
                                                 </div>
                                             </div>
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-short is-link" type="text" placeholder="Opci贸n 2" name="pre3opc2">
+                                                    <input class="input is-short is-link" type="text" placeholder="Opci贸n 2" name="txtOp2Preg3">
                                                 </div>
                                             </div>
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-short is-link" type="text" placeholder="Opci贸n 3" name="pre3opc3">
+                                                    <input class="input is-short is-link" type="text" placeholder="Opci贸n 3" name="txtOp3Preg3">
                                                 </div>
                                             </div>
+                                            <select name="txtOpCorrPreg3">
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                            </select>
                                         </div>
 
-<!----------------------------------PREGUNTA 4------------------------------------------------------------------------------->
+                                        <!----------------------------------PREGUNTA 4------------------------------------------------------------------------------->
                                         <div class="tabcontent" id="Pregunta4">
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-medium is-link" type="text" placeholder="Pregunta 4" name="pre4">
+                                                    <input class="input is-medium is-link" type="text" placeholder="Pregunta 4" name="txtDescripPreg4">
                                                 </div>
                                             </div>
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-short is-link" type="text" placeholder="Opci贸n 1" name="pre4opc1">
+                                                    <input class="input is-short is-link" type="text" placeholder="Opci贸n 1" name="txtOp1Preg4">
                                                 </div>
                                             </div>
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-short is-link" type="text" placeholder="Opci贸n 2" name="pre4opc2">
+                                                    <input class="input is-short is-link" type="text" placeholder="Opci贸n 2" name="txtOp2Preg4">
                                                 </div>
                                             </div>
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-short is-link" type="text" placeholder="Opci贸n 3" name="pre4opc3">
+                                                    <input class="input is-short is-link" type="text" placeholder="Opci贸n 3" name="txtOp3Preg4">
                                                 </div>
                                             </div>
+                                            <select name="txtOpCorrPreg4">
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                            </select>
                                         </div>
 
-<!----------------------------------PREGUNTA 5------------------------------------------------------------------------------->
+                                        <!----------------------------------PREGUNTA 5------------------------------------------------------------------------------->
                                         <div class="tabcontent" id="Pregunta5">
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-medium is-link" type="text" placeholder="Pregunta 5" name="pre5">
+                                                    <input class="input is-medium is-link" type="text" placeholder="Pregunta 5" name="txtDescripPreg5">
                                                 </div>
                                             </div>
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-short is-link" type="text" placeholder="Opci贸n 1" name="pre5opc1">
+                                                    <input class="input is-short is-link" type="text" placeholder="Opci贸n 1" name="txtOp1Preg5">
                                                 </div>
                                             </div>
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-short is-link" type="text" placeholder="Opci贸n 2" name="pre5opc2">
+                                                    <input class="input is-short is-link" type="text" placeholder="Opci贸n 2" name="txtOp2Preg5">
                                                 </div>
                                             </div>
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-short is-link" type="text" placeholder="Opci贸n 3" name="pre5opc3">
+                                                    <input class="input is-short is-link" type="text" placeholder="Opci贸n 3" name="txtOp3Preg5">
                                                 </div>
                                             </div>
+                                            <select name="txtOpCorrPreg5">
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                            </select>
                                         </div>
 
-<!----------------------------------PREGUNTA 6------------------------------------------------------------------------------->
+                                        <!----------------------------------PREGUNTA 6------------------------------------------------------------------------------->
                                         <div class="tabcontent" id="Pregunta6">
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-medium is-link" type="text" placeholder="Pregunta 6" name="pre6">
+                                                    <input class="input is-medium is-link" type="text" placeholder="Pregunta 6" name="txtDescripPreg6">
                                                 </div>
                                             </div>
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-short is-link" type="text" placeholder="Opci贸n 1" name="pre6opc1">
+                                                    <input class="input is-short is-link" type="text" placeholder="Opci贸n 1" name="txtOp1Preg6">
                                                 </div>
                                             </div>
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-short is-link" type="text" placeholder="Opci贸n 2" name="pre6opc2">
+                                                    <input class="input is-short is-link" type="text" placeholder="Opci贸n 2" name="txtOp2Preg6">
                                                 </div>
                                             </div>
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-short is-link" type="text" placeholder="Opci贸n 3" name="pre6opc3">
+                                                    <input class="input is-short is-link" type="text" placeholder="Opci贸n 3" name="txtOp3Preg6">
                                                 </div>
                                             </div>
+                                            <select name="txtOpCorrPreg6">
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                            </select>
                                         </div>
 
-<!----------------------------------PREGUNTA 7------------------------------------------------------------------------------->
+                                        <!----------------------------------PREGUNTA 7------------------------------------------------------------------------------->
                                         <div class="tabcontent" id="Pregunta7">
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-medium is-link" type="text" placeholder="Pregunta 7" name="pre7">
+                                                    <input class="input is-medium is-link" type="text" placeholder="Pregunta 7" name="txtDescripPreg7">
                                                 </div>
                                             </div>
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-short is-link" type="text" placeholder="Opci贸n 1" name="pre7opc1">
+                                                    <input class="input is-short is-link" type="text" placeholder="Opci贸n 1" name="txtOp1Preg7">
                                                 </div>
                                             </div>
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-short is-link" type="text" placeholder="Opci贸n 2" name="pre7opc2">
+                                                    <input class="input is-short is-link" type="text" placeholder="Opci贸n 2" name="txtOp2Preg7">
                                                 </div>
                                             </div>
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-short is-link" type="text" placeholder="Opci贸n 3" name="pre7opc3">
+                                                    <input class="input is-short is-link" type="text" placeholder="Opci贸n 3" name="txtOp3Preg7">
                                                 </div>
                                             </div>
+                                            <select name="txtOpCorrPreg7">
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                            </select>
                                         </div>
 
-<!----------------------------------PREGUNTA 8------------------------------------------------------------------------------->
+                                        <!----------------------------------PREGUNTA 8------------------------------------------------------------------------------->
                                         <div class="tabcontent" id="Pregunta8">
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-medium is-link" type="text" placeholder="Pregunta 8" name="pre8">
+                                                    <input class="input is-medium is-link" type="text" placeholder="Pregunta 8" name="txtDescripPreg8">
                                                 </div>
                                             </div>
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-short is-link" type="text" placeholder="Opci贸n 1" name="pre8opc1">
+                                                    <input class="input is-short is-link" type="text" placeholder="Opci贸n 1" name="txtOp1Preg8">
                                                 </div>
                                             </div>
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-short is-link" type="text" placeholder="Opci贸n 2" name="pre8opc2">
+                                                    <input class="input is-short is-link" type="text" placeholder="Opci贸n 2" name="txtOp2Preg8">
                                                 </div>
                                             </div>
                                             <div class="field">
                                                 <div class="control">
-                                                    <input class="input is-short is-link" type="text" placeholder="Opci贸n 3" name="pre8opc3">
+                                                    <input class="input is-short is-link" type="text" placeholder="Opci贸n 3" name="txtOp3Preg8">
                                                 </div>
                                             </div>
+                                            <select name="txtOpCorrPreg8">
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                            </select>
                                             <br>
-                                <!----------------------------------BOT脫N---------------------------------------->
+                                            <!----------------------------------BOT覰---------------------------------------->
                                             <div class="field">
                                                 <input type="submit" class="button is-block is-link is-large is-fullwidth" value="Crear Examen">
                                             </div>
+                                            
                                         </div>
                                     </form>
-<!----------------------------------FORMULARIO----------------------------------------------------------------------------------------->
+                                    <!----------------------------------FORMULARIO----------------------------------------------------------------------------------------->
                                 </div>
                                 <div class="column"></div>
                             </div>
@@ -302,8 +353,8 @@
                     <div class="column is-3 is-offset-2">
                         <h2><strong>Enlaces</strong></h2>
                         <ul>
-                            <li><a href="https://www.gob.mx/sep">Secretar铆a de Educaci贸n P煤blica</a></li>
-                            <li><a href="https://www.asociacionmexicanadepedagogia.com/about">Asociaci贸n Mexicana de Pedagog铆a</a></li>            
+                            <li><a href="https://www.gob.mx/sep">Secretar韆 de Educaci髇 P鷅lica</a></li>
+                            <li><a href="https://www.asociacionmexicanadepedagogia.com/about">Asociaci髇 Mexicana de Pedagog韆</a></li>            
                             <li><a href="http://inicio.ifai.org.mx/SitePages/ifai.aspx">Instituto Nacional de Transparencia, Acceso a la Informaci贸n y Protecci贸n de Datos Personales</a></li>
                         </ul>
                     </div>
@@ -312,7 +363,7 @@
                     <div class="column is-4">
                         <h2><strong>Contacto</strong></h2>
                         <ul>
-                            <li>Mesa de ayuda: dudas e informaci贸n gobmx@funcionpublica.gob.mx</li>
+                            <li>Mesa de ayuda: dudas e informaci髇 gobmx@funcionpublica.gob.mx</li>
                             <li>Contactanos: 55 55 55 55 55</li>
                             <li><a href="https://github.com/luisfig">Git Hub</a></li>
                         </ul>
@@ -322,19 +373,19 @@
             <script src="js/bulma.js"></script>
         </footer>
         <script>
-            function openTab(evt, opc) {
-                var i, tabcontent, tablinks;
-                tabcontent = document.getElementsByClassName("tabcontent");
-                for (i = 0; i < tabcontent.length; i++) {
-                  tabcontent[i].style.display = "none";
-                }
-                tablinks = document.getElementsByClassName("tablinks");
-                for (i = 0; i < tablinks.length; i++) {
-                  tablinks[i].className = tablinks[i].className.replace(" is-active", "");
-                }
-                document.getElementById(opc).style.display = "block";
-                evt.currentTarget.className += " is-active";
-            }
+                                        function openTab(evt, opc) {
+                                            var i, tabcontent, tablinks;
+                                            tabcontent = document.getElementsByClassName("tabcontent");
+                                            for (i = 0; i < tabcontent.length; i++) {
+                                                tabcontent[i].style.display = "none";
+                                            }
+                                            tablinks = document.getElementsByClassName("tablinks");
+                                            for (i = 0; i < tablinks.length; i++) {
+                                                tablinks[i].className = tablinks[i].className.replace(" is-active", "");
+                                            }
+                                            document.getElementById(opc).style.display = "block";
+                                            evt.currentTarget.className += " is-active";
+                                        }
         </script>
     </body>
 </html>

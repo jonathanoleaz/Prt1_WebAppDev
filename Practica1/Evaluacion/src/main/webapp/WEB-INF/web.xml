@@ -24,6 +24,22 @@
         <servlet-name>LlenarCarrerasMateria</servlet-name>
         <servlet-class>Controllers.LlenarCarrerasMateria</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ExamenServlet</servlet-name>
+        <servlet-class>Controllers.ExamenServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LlenarMateriasExamen</servlet-name>
+        <servlet-class>Controllers.LlenarMateriasExamen</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LlenarMateriasHacerExamen</servlet-name>
+        <servlet-class>Controllers.LlenarHacerExamen</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CalificacionesTodas</servlet-name>
+        <servlet-class>VisoresPDF.CalificacionesTodas</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CarreraServlet</servlet-name>
         <url-pattern>/CarreraServlet</url-pattern>
@@ -47,6 +63,22 @@
     <servlet-mapping>
         <servlet-name>LlenarCarrerasMateria</servlet-name>
         <url-pattern>/LlenarCarrerasMateria</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExamenServlet</servlet-name>
+        <url-pattern>/ExamenServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LlenarMateriasExamen</servlet-name>
+        <url-pattern>/LlenarMateriasExamen</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LlenarMateriasHacerExamen</servlet-name>
+        <url-pattern>/LlenarMateriasHacerExamen</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CalificacionesTodas</servlet-name>
+        <url-pattern>/CalificacionesTodas</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

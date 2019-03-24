@@ -1,3 +1,6 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="ISO-8859-1"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -20,7 +23,7 @@
                     <div class="container">
                         <div class="navbar-brand">
                             <a class="navbar-item" href="index.html">
-                                <h2 class="subtitle has-text-white has-text-weight-bold">SISTEMA PARA LA EVALUACIÓN</h2>
+                                <h2 class="subtitle has-text-white has-text-weight-bold">SISTEMA PARA LA EVALUACI�N</h2>
                             </a>
                             <span class="navbar-burger burger" data-target="navbarMenu">
                                 <span></span>
@@ -63,16 +66,20 @@
                                 <div class="column is-half">
                                     <h2 class="subtitle has-text-centered">Selecciona el examen a realizar:</h2>
                     <!----------------------------------------FORMULARIO------------------------------------------------->
-                                    <form method="POST">
+                                    <form method="POST" name="examenForm" id="alumnoForm"
+                                          action="ExamenServlet?accion=actualizar">
                                         <div class="field tabcontent tabcontent2" id="Titulo">
                                             <div class="control">
                                                 <div class="select is-medium is-fullwidth">
-                                                    <select>
-                                    <!----------------------------------------MATERIA------------------------------------------------->
-                                                        <option>Matemáticas</option>
-                                                        <option>Computación</option>
-                                    <!----------------------------------------MATERIA------------------------------------------------->                                                    
-                                                    </select>
+                                                    
+                                    <!----------------------------------------Examen------------------------------------------------->                                                                                                            
+                                                    <select name="idExamen">
+                                                    <c:forEach var="examenes" items="${listaExamen}">
+                                                        <option value="${examenes.idexamen}">${examenes.nombreexamen}</option>
+                                                    </c:forEach>
+                                                </select>                                    
+                                    <!----------------------------------------Examen------------------------------------------------->                                                    
+                                                    
                                                 </div>
                                             </div>
                                         </div>
@@ -105,7 +112,7 @@
                     <div class="column is-4">
                         <h2><strong>Contacto</strong></h2>
                         <ul>
-                            <li>Mesa de ayuda: dudas e información gobmx@funcionpublica.gob.mx</li>
+                            <li>Mesa de ayuda: dudas e informaci�n gobmx@funcionpublica.gob.mx</li>
                             <li>Contactanos: 55 55 55 55 55</li>
                             <li><a href="https://github.com/luisfig">Git Hub</a></li>
                         </ul>
